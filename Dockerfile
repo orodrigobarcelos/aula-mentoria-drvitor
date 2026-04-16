@@ -1,3 +1,4 @@
-FROM nginx:alpine
-COPY index.html /usr/share/nginx/html/index.html
-EXPOSE 80
+FROM python:3.11-alpine
+WORKDIR /app
+COPY index.html .
+CMD ["sh", "-c", "python3 -m http.server ${PORT:-8080}"]
